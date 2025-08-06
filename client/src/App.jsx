@@ -19,7 +19,7 @@ const App = () => {
 
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:5000/generate-email", { prompt });
+      const res = await axios.post("https://ai-email-generatorbackend.vercel.app/generate-email", { prompt });
 
       if (res.data?.emailContent) {
         setEmailContent(res.data.emailContent);
@@ -43,7 +43,7 @@ const App = () => {
 
     try {
       setSending(true);
-      const res = await axios.post("http://localhost:5000/send-email", {
+      const res = await axios.post("https://ai-email-generatorbackend.vercel.app/send-email", {
         recipients: [recipient],
         subject,
         body: emailContent,
